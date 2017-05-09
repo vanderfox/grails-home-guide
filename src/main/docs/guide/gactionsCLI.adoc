@@ -1,0 +1,17 @@
+Go to https://developers.google.com/actions/tools/gactions-cli[gactions CLI] and download it:
+
+image::gactions-cli.png[]
+
+make the gactions binary executable (chmod +x on linux and OSX)
+
+After you have installed gactions, run the init command in your terminal:
+
+image::gactions-cli.png[]
+
+
+[source, bash]
+----
+$ gactions init --force
+----
+
+Since we have already included an action.json file, we just want to set up your account information.

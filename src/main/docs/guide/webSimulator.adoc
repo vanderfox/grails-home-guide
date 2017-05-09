@@ -1,0 +1,17 @@
+When you run gactions preview command, it will give you a link to open the web simulator.
+
+
+make the gactions binary executable (chmod +x on linux and OSX)
+
+[source, bash]
+----
+$ gactions preview -action_package=src/main/resources/action.json -invocation_name="color finder"
+----
+
+Now we will see a link you can open the web simulator with
+
+image::websimulator1.png[]
+
+Click start now you should see this:
+
+image::websimulator2.png[]

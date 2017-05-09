@@ -1,0 +1,30 @@
+gettingStarted: 
+  title: Getting Started
+  requirements: What you will need
+  howto: How to complete the guide
+writingTheApp:
+  title: Writing the Application
+  grailsResponseHandler: Handler that allows Grails to handle requests from Google
+  assistantActionController: Controller for inbound requests from Google to respond to a action
+  colorUtils: small library to help translate between java.awt.Color to give colors names
+googleActionsApi:
+  title: enable google actions in your google api console
+googleCloud:
+  title: Cloud SDK
+appEngine:
+  title: Google App Engine
+  gapGradlePlugin: Google App Engine Gradle Plugin
+  applicationDeploymentConfiguration: Application Deployment Configuration
+  springBootJetty: SpringBoot Jetty
+gactionsCLI:
+  title: We need to install the platform specific gactions CLI
+googleActionsJavaSdk:
+  title: Unofficial Google Actions Java SDK
+runningTheApp:
+  title: Running the Application
+webSimulator:
+  title: test and interact with your Goole Action
+debugging:
+  title: same requests from google to file and replay and debug via curl commands
+runningTheApp:
+  title: Running the Application
