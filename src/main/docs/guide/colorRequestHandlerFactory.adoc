@@ -1,0 +1,6 @@
+This is part of the Google Actions SDK plumbing that handles invocation of ColorRequestHandler.
+[source,groovy]
+./src/main/groovy/org/grails/gactions/ColorRequestHandlerFactory.groovy
+----
+include::{sourceDir}/src/main/groovy/org/grails/gactions/ColorRequestHandlerFactory.groovy[indent=0]
+----

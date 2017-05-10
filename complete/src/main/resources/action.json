@@ -1,0 +1,53 @@
+{
+  "versionLabel": "1.0.0",
+  "agentInfo": {
+    "languageCode": "en-US",
+    "projectId": "color-finder-167203",
+    "voiceName": "male_1"
+  },
+  "actions": [
+    {
+      "initialTrigger": {
+        "intent": "assistant.intent.action.MAIN"
+      },
+      "httpExecution": {
+        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/index"
+      }
+    },
+    {
+      "description": "Deep link that finds colors",
+      "initial_trigger": {
+        "intent": "color.intent",
+        "queryPatterns": [
+          {
+            "queryPattern": "find a brighter color for $SchemaOrg_Text:word"
+          },
+          {
+            "queryPattern": "about $SchemaOrg_Text:word"
+          },
+          {
+            "queryPattern": "find colors"
+          }
+        ]
+      },
+      "http_execution": {
+        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/color"
+      }
+    },
+    {
+      "description": "Deep link that finds colors",
+      "initial_trigger": {
+        "intent": "color.darker.intent",
+        "queryPatterns": [
+          {
+            "queryPattern": "find a darker color for $SchemaOrg_Text:word"
+          }
+
+        ]
+      },
+      "http_execution": {
+        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/darkerColor"
+      }
+    }
+  ]
+}

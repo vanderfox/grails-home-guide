@@ -14,4 +14,4 @@ image::gactions-cli.png[]
 $ gactions init --force
 ----
 
-Since we have already included an action.json file, we just want to set up your account information.
+Since we have already included an action.json file, we just want to set up your account information and we will come back to this later.

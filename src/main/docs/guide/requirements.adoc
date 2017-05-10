@@ -1,5 +1,6 @@
-include::{commondir}/common-requirements.adoc[]
 
-JDK 1.8
-A Google account
-curl command to help debugging
+
+* Some time on your hands
+* A decent text editor or IDE
+* A Google account
+* curl command to help debugging

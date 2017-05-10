@@ -6,9 +6,24 @@ writingTheApp:
   title: Writing the Application
   grailsResponseHandler: Handler that allows Grails to handle requests from Google
   assistantActionController: Controller for inbound requests from Google to respond to a action
+  mainRequestHandlerFactory: Plumbing to handle the MainRequestHandler
+  mainRequestHandler: Example main handler that says an initial welcome message (goes with textResponseHandler)
+  textRequestHandlerFactory: Plumbing to handle the TextRequestHandler
+  textRequestHandler: Sample handler that echos back something you told it
+  myPermissionRequestHandlerFactory: Plumbing to handle the MyPermissionRequestHandler
+  myPermissionRequestHandler: Sample of asking for a permission
+  colorRequestHandlerFactory: Plumbing to handle the ColorRequestHandler
+  colorRequestHandler: This handles when a user asks for a brighter color for a given color
+  darkerColorRequesteHandlerFactory: Plumbing to handle the DarkerColorRequestHandler
+  darkerColorRequestHandler: This handles when a user asks for a darker color for a given color
   colorUtils: small library to help translate between java.awt.Color to give colors names
+  action: action.json is the metadata to tell Google how to handle processing the action calls
 googleActionsApi:
   title: enable google actions in your google api console
+gactionsCLI:
+  title: We need to install the platform specific gactions CLI
+googleActionsJavaSdk:
+  title: Unofficial Google Actions Java SDK
 googleCloud:
   title: Cloud SDK
 appEngine:
@@ -16,12 +31,8 @@ appEngine:
   gapGradlePlugin: Google App Engine Gradle Plugin
   applicationDeploymentConfiguration: Application Deployment Configuration
   springBootJetty: SpringBoot Jetty
-gactionsCLI:
-  title: We need to install the platform specific gactions CLI
-googleActionsJavaSdk:
-  title: Unofficial Google Actions Java SDK
-runningTheApp:
-  title: Running the Application
+deployingTheApp:
+  title: Deploying the App
 webSimulator:
   title: test and interact with your Goole Action
 debugging:

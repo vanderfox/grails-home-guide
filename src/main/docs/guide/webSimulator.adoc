@@ -8,10 +8,17 @@ make the gactions binary executable (chmod +x on linux and OSX)
 $ gactions preview -action_package=src/main/resources/action.json -invocation_name="color finder"
 ----
 
-Now we will see a link you can open the web simulator with
+You should see a similar message:
+---
+Pushing action 'color finder' for testing...
+'color finder' is now available for you until 2017-05-10 1:55AM CDT (29 minutes from now)
+Try 'gactions simulate', then 'talk to color finder', or use the Web Simulator at https://g.co/actionswebsim.
+---
 
-image::websimulator1.png[]
+You can use the --preview_mins 9999999 parameter to extend the preview time.
 
 Click start now you should see this:
 
 image::websimulator2.png[]
+
+You may also try using your Goole Home device associated to your account as well.

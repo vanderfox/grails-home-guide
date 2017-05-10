@@ -1,0 +1,36 @@
+Go to https://console.developers.google.com/apis/dashboard[Google Developer Console]
+
+
+
+Click on Enable Api
+
+image::enable-api.png[]
+
+Then fine the Google Actions API
+
+image::enable-google-actions-api.png[]
+
+image::library-select-or-create.png[]
+
+Select create on the menu. If you have other API projects already created, you will see a drop down menu on the top bar. Click it then click Create.
+
+image::color-finder-enable-api.png[]
+
+For project name let's enter 'color-api'. Note the full project name as we will need
+
+Click on Enable Api
+
+image::enable-api.png[]
+
+Then fine the Google Actions API
+
+image::enable-google-actions-api.png[]
+
+Now you should see this screen:
+
+image::color-finder-directory.png[]
+
+You don't need to do anything else here. When you are ready to publish your action to the world, you can fill in the directory listing and save it to submit for testing.
+
+
+

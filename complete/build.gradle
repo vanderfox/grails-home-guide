@@ -1,3 +1,4 @@
+// tag::gradleBuildscript[]
 buildscript {
     repositories {
         mavenLocal()
@@ -7,30 +8,48 @@ buildscript {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.1"
         classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:1.1.1' // <1>
     }
 }
+// end::gradleBuildscript[]
 
+// tag::gradleGroupAndVersion[]
 version "0.1"
 group "google.home"
+// end::gradleGroupAndVersion[]
 
+
+// tag::gradleApplyPlugins[]
 apply plugin:"eclipse"
 apply plugin:"idea"
 apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
+apply plugin:"codenarc"
+apply plugin: 'com.google.cloud.tools.appengine' // <1>
+// end::gradleApplyPlugins[]
 
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    jcenter()
 }
+
+// tag::configurations[]
+configurations {
+    compile.exclude module: "tomcat-juli"
+}
+// end::configurations[]
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    // tag::springBootStarterJetty[]
+    provided "org.springframework.boot:spring-boot-starter-jetty"
+    // end::springBootStarterJetty[]
     compile "org.grails:grails-dependencies"
     compile "org.grails:grails-web-boot"
     compile "org.grails.plugins:cache"
@@ -41,12 +60,23 @@ dependencies {
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.1"
-    runtime "com.h2database:h2"
+
+    // tag::gradleMySQLDependencies[]
+    runtime 'mysql:mysql-connector-java:6.0.5' // <1>
+    runtime 'com.google.cloud.sql:mysql-socket-factory-connector-j-6:1.0.2' // <2>
+    // end::gradleMySQLDependencies[]
+
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+
+    // tag::cloudStorageDependency[]
+    compile 'com.google.cloud:google-cloud-storage:0.12.0-beta'
+    // end::cloudStorageDependency[]
+    compile 'com.frogermcs.gactions:gactions:0.1.1'
 }
+
 
 bootRun {
     jvmArgs('-Dspring.output.ansi.enabled=always')
@@ -57,4 +87,14 @@ bootRun {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+bootRun {
+    systemProperties System.properties
+}
+
+codenarc {
+    toolVersion = '0.27.0'
+    configFile = new File(projectDir, 'config/codenarc/rules.groovy')
+    reportFormat = 'html'
 }

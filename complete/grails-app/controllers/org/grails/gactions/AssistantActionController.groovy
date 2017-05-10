@@ -6,11 +6,7 @@ import com.frogermcs.gactions.api.request.RootRequest
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.stream.JsonReader
-import com.vanderfox.gactions.ColorRequestHandlerFactory
-import com.vanderfox.gactions.DarkerColorRequestHandlerFactory
-import com.vanderfox.gactions.MainRequestHandlerFactory
-import com.vanderfox.gactions.MyPermissionRequestHandlerFactory
-import com.vanderfox.gactions.TextRequestHandlerFactory
+
 
 import javax.servlet.http.HttpServletRequest
 

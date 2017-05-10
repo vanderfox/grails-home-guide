@@ -1,6 +1,5 @@
 We want to be able to allow Grails to handle requests that come from Google using the Actions SDK. We will use this class to allow us to use a controller to process the incoming requests.
 
-include::{commondir}/common-quoteDomainClass.adoc[]
 
 [source,groovy]
 ./grails-app/controllers/org/grails/gactions/AssistantActionController.groovy

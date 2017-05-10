@@ -1,0 +1,6 @@
+This is part of the Google Actions SDK plumbing that handles invocation of DarkerColorRequestHandler.
+[source,groovy]
+./src/main/groovy/org/grails/gactions/DarkerColorRequestHandlerFactory.groovy
+----
+include::{sourceDir}/src/main/groovy/org/grails/gactions/DarkerColorRequestHandlerFactory.groovy[indent=0]
+----
