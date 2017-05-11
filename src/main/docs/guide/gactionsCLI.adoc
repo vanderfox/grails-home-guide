@@ -1,12 +1,11 @@
+
 Go to https://developers.google.com/actions/tools/gactions-cli[gactions CLI] and download it:
 
 image::gactions-cli.png[]
 
-make the gactions binary executable (chmod +x on linux and OSX)
+Make the gactions binary executable (chmod +x on linux and OSX).
 
 After you have installed gactions, run the init command in your terminal:
-
-image::gactions-cli.png[]
 
 
 [source, bash]

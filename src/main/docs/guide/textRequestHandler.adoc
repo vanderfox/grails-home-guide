@@ -1,6 +1,6 @@
 This is where the logic goes for the text intent. It is called when the user responds to the main intent. It will echo back what the user told the main intent.
 [source,groovy]
-./src/main/groovy/org/grails/gactions/TextRequestResponseHandler.groovy
+./src/main/groovy/org/grails/gactions/TextRequestHandler.groovy
 ----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/TextRequestResponseHandler.groovy[indent=0]
+include::{sourceDir}/src/main/groovy/org/grails/gactions/TextRequestHandler.groovy[indent=0]
 ----

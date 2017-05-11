@@ -11,7 +11,7 @@ import java.awt.*
 import java.lang.reflect.Field
 
 /**
- * Created by froger_mcs on 19/01/2017.
+ * take a color name input and returns a brighter color name in return if possible
  */
 @Slf4j
 public class ColorRequestHandler extends RequestHandler {
@@ -38,8 +38,7 @@ public class ColorRequestHandler extends RequestHandler {
             if (brighter != color) {
                 return ResponseBuilder.tellResponse("The brighter color for ${color} is ${brighter} ")
             } else {
-                //def sorryAnswer = "Sorry I can't find a brighter color for ${color}."
-                def sorryAnswer = "<speak><audio src=\"https://actions.google.com/sounds/v1/cartoon/metallic_clank.ogg\">Sorry I can't find a brighter color for ${color}.</speak>"
+                def sorryAnswer = "Sorry I can't find a brighter color for ${color}."
                 return ResponseBuilder.tellResponse(sorryAnswer)
             }
 

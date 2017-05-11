@@ -8,7 +8,7 @@ import groovy.util.logging.Slf4j
 import javax.servlet.http.HttpServletResponse
 
 /**
- * Created by rvanderwerf on 4/14/17.
+ * This is a handler for the SDK to make it work with Grails properly
  */
 @Slf4j
 class GrailsResponseHandler implements ResponseHandler{
@@ -50,9 +50,7 @@ class GrailsResponseHandler implements ResponseHandler{
     public String getResponse(RootResponse rootResponse) {
 
         try {
-
             gson.toJson(rootResponse)
-
         } catch (IOException e) {
             log.error("Error getting response",e)
             e.printStackTrace()

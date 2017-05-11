@@ -1,6 +1,7 @@
 This is part of the Google Actions SDK plumbing that handles invocation of MainRequestResponseHandler.
+
 [source,groovy]
-./src/main/groovy/org/grails/gactions/MainRequestResponseHandlerFactory.groovy
+./src/main/groovy/org/grails/gactions/MainRequestHandlerFactory.groovy
 ----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/MainRequestResponseHandlerFactory.groovy[indent=0]
+include::{sourceDir}/src/main/groovy/org/grails/gactions/MainRequestHandlerFactory.groovy[indent=0]
 ----

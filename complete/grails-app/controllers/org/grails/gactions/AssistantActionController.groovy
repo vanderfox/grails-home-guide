@@ -29,7 +29,7 @@ class AssistantActionController {
         writer.flush()
         writer.close()
         assistantActions.handleRequest(rootRequest)
-        null // we dont want to return a grails view here the handlers do this
+        null // we do not want to return a grails view here the handlers do this
 
     }
 
@@ -51,7 +51,7 @@ class AssistantActionController {
         writer.flush()
         writer.close()
         assistantActions.handleRequest(rootRequest)
-        null // we dont want to return a grails view here the handlers do this
+        null // we do not want to return a grails view here the handlers do this
 
     }
     def darkerColor() {
@@ -67,7 +67,7 @@ class AssistantActionController {
         writer.flush()
         writer.close()
         assistantActions.handleRequest(rootRequest)
-        null // we dont want to return a grails view here the handlers do this
+        null // we do not want to return a grails view here the handlers do this
 
     }
 }

@@ -11,7 +11,7 @@ import java.awt.*
 import java.lang.reflect.Field
 
 /**
- * Created by froger_mcs on 19/01/2017.
+ * take a color name input and returns a darker color name in return if possible
  */
 @Slf4j
 public class DarkerColorRequestHandler extends RequestHandler {
@@ -33,9 +33,9 @@ public class DarkerColorRequestHandler extends RequestHandler {
         }
         if (parsedColor) {
             ColorUtils colorUtils = new ColorUtils()
-            String brighter = colorUtils.findDarkerNameForColor(parsedColor).toLowerCase()
-            if (brighter != color) {
-                return ResponseBuilder.tellResponse("The darker color for ${color} is ${brighter} ")
+            String darker = colorUtils.findDarkerNameForColor(parsedColor).toLowerCase()
+            if (darker != color) {
+                return ResponseBuilder.tellResponse("The darker color for ${color} is ${darker} ")
             } else {
                 return ResponseBuilder.tellResponse("Sorry I can't find a darker color for ${color}.")
             }

@@ -1,6 +1,6 @@
 This handler demonstrates passing a verbal parameter into the intent. When the user asks for a brighter color for X it will try to find a brighter color with a name and say it to the user.
 [source,groovy]
-./src/main/groovy/org/grails/gactions/ColorRequestResponseHandler.groovy
+./src/main/groovy/org/grails/gactions/ColorRequestHandler.groovy
 ----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/ColorRequestResponseHandler.groovy[indent=0]
+include::{sourceDir}/src/main/groovy/org/grails/gactions/ColorRequestHandler.groovy[indent=0]
 ----

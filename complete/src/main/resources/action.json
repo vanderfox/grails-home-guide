@@ -11,7 +11,7 @@
         "intent": "assistant.intent.action.MAIN"
       },
       "httpExecution": {
-        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/index"
+        "url": "https://color-finder-167203.appspot.com/assistantAction/index"
       }
     },
     {
@@ -31,7 +31,7 @@
         ]
       },
       "http_execution": {
-        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/color"
+        "url": "https://color-finder-167203.appspot.com/assistantAction/color"
       }
     },
     {
@@ -46,7 +46,7 @@
         ]
       },
       "http_execution": {
-        "url": "https://victorops.vanderfox.net/grails-google-actions-demo/assistantAction/darkerColor"
+        "url": "https://color-finder-167203.appspot.com/assistantAction/darkerColor"
       }
     }
   ]

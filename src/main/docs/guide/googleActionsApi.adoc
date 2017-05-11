@@ -6,7 +6,7 @@ Click on Enable Api
 
 image::enable-api.png[]
 
-Then fine the Google Actions API
+Then find the Google Actions API
 
 image::enable-google-actions-api.png[]
 
@@ -16,13 +16,13 @@ Select create on the menu. If you have other API projects already created, you w
 
 image::color-finder-enable-api.png[]
 
-For project name let's enter 'color-api'. Note the full project name as we will need
+For project name let's enter 'color-api'. Note the projectId as we will need to enter into the action.json file.
 
 Click on Enable Api
 
 image::enable-api.png[]
 
-Then fine the Google Actions API
+Then find the Google Actions API
 
 image::enable-google-actions-api.png[]
 

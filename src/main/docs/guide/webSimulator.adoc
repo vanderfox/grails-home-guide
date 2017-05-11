@@ -1,5 +1,6 @@
 When you run gactions preview command, it will give you a link to open the web simulator.
 
+Let's make sure we edit the action.json file and make sure we update the projectId and the hostname in each occurrence of 'httpExecution' with the hostname shows during the appDeploy command.
 
 make the gactions binary executable (chmod +x on linux and OSX)
 
@@ -21,4 +22,55 @@ Click start now you should see this:
 
 image::websimulator2.png[]
 
-You may also try using your Goole Home device associated to your account as well.
+---
+
+Try to test out your actions with the following phrases:
+
+---
+"ask color finder to find a brighter color for magenta"
+---
+You should see the response:
+
+---
+"Sure, here is the test version of color finder
+The brighter color for magenta is fuchsia"
+---
+
+Let's try another:
+
+---
+
+talk to color finder
+
+---
+
+You'll see:
+
+---
+
+Sure, here is the test version of color finder
+Hey, it works! Now tell something so I could repeat it.
+
+---
+
+Now respond with something:
+
+---
+
+Say something about Grails
+
+---
+
+You should see it echo back what you entered:
+
+---
+
+You just told: say something about Grails
+
+---
+
+You may also try using your Google Home device associated to your account as well.
+
+
+Now you can make a more rich skill, and when you are ready go to the Google API dashbaord, fill in the directory listing and submit it for testing.
+

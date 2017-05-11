@@ -3,6 +3,7 @@ This is the metadata to tell google actions about our app.
 We will need to modify projectId with the one you created in the console, and the httpExecution items to match your deployed application endpoints.
 
 Here you can also control:
+
     * the type of voice used (male_1,
                           male_2,
                           female_1,
