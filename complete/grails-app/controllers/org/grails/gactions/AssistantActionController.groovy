@@ -6,6 +6,7 @@ import com.frogermcs.gactions.api.request.RootRequest
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.stream.JsonReader
+import grails.util.Environment
 import javax.servlet.http.HttpServletRequest
 import groovy.transform.CompileStatic
 
@@ -22,20 +23,12 @@ class AssistantActionController {
                         .addRequestHandlerFactory('color.darker.intent', new DarkerColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
-        // log to file for debugging
-        Writer writer = new FileWriter("/tmp/google-action-request-${System.currentTimeMillis()}-debug.json")
-        Gson gson = new GsonBuilder().create()
-        gson.toJson(rootRequest, writer)
-        writer.flush()
-        writer.close()
+        if (Environment.current == Environment.DEVELOPMENT) {
+            String fileName = "/tmp/google-action-request-${System.currentTimeMillis()}-debug.json"
+            logToFile(rootRequest, fileName)
+        }
         assistantActions.handleRequest(rootRequest)
         null // we do not want to return a grails view here the handlers do this
-
-    }
-
-    private RootRequest parseActionRequest(HttpServletRequest request) throws IOException {
-        JsonReader jsonReader = new JsonReader(request.reader)
-        new Gson().fromJson(jsonReader, RootRequest)
     }
 
     def color() {
@@ -44,12 +37,10 @@ class AssistantActionController {
                         .addRequestHandlerFactory('color.intent', new ColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
-        // log to file for debugging
-        Writer writer = new FileWriter("/tmp/google-action-request-color-${System.currentTimeMillis()}-debug.json")
-        Gson gson = new GsonBuilder().create()
-        gson.toJson(rootRequest, writer)
-        writer.flush()
-        writer.close()
+        if (Environment.current == Environment.DEVELOPMENT) {
+            String fileName = "/tmp/google-action-request-color-${System.currentTimeMillis()}-debug.json"
+            logToFile(rootRequest, fileName)
+        }
         assistantActions.handleRequest(rootRequest)
         null // we do not want to return a grails view here the handlers do this
 
@@ -60,14 +51,24 @@ class AssistantActionController {
                         .addRequestHandlerFactory('color.darker.intent', new DarkerColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
-        // log to file for debugging
-        Writer writer = new FileWriter("/tmp/google-action-request-color-${System.currentTimeMillis()}-debug.json")
+        if (Environment.current == Environment.DEVELOPMENT) {
+            String fileName = "/tmp/google-action-request-color-${System.currentTimeMillis()}-debug.json"
+            logToFile(rootRequest, fileName)
+        }
+        assistantActions.handleRequest(rootRequest)
+        null // we do not want to return a grails view here the handlers do this
+    }
+
+    private RootRequest parseActionRequest(HttpServletRequest request) throws IOException {
+        JsonReader jsonReader = new JsonReader(request.reader)
+        new Gson().fromJson(jsonReader, RootRequest)
+    }
+
+    private void logToFile(RootRequest rootRequest, String filename) {
+        Writer writer = new FileWriter(filename)
         Gson gson = new GsonBuilder().create()
         gson.toJson(rootRequest, writer)
         writer.flush()
         writer.close()
-        assistantActions.handleRequest(rootRequest)
-        null // we do not want to return a grails view here the handlers do this
-
     }
 }
