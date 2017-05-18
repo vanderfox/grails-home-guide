@@ -4,30 +4,31 @@ import com.frogermcs.gactions.ResponseBuilder
 import com.frogermcs.gactions.api.RequestHandler
 import com.frogermcs.gactions.api.request.RootRequest
 import com.frogermcs.gactions.api.response.RootResponse
-import groovy.util.logging.Slf4j
 import org.grails.gactions.util.ColorUtils
-
-import java.awt.*
+import java.awt.Color
 import java.lang.reflect.Field
+import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
 
 /**
  * take a color name input and returns a brighter color name in return if possible
  */
+@CompileStatic
 @Slf4j
-public class ColorRequestHandler extends RequestHandler {
+class ColorRequestHandler extends RequestHandler {
 
     protected ColorRequestHandler(RootRequest rootRequest) {
         super(rootRequest)
     }
 
     @Override
-    public RootResponse getResponse() {
+    RootResponse getResponse() {
         log.debug("Inputs=${rootRequest.inputs.toListString()}")
         String color = rootRequest.inputs[0].arguments[0].raw_text.toLowerCase()
 
         Color parsedColor = null
         try {
-            Field field = Class.forName("java.awt.Color").getField(color)
+            Field field = Class.forName('java.awt.Color').getField(color)
             parsedColor = (Color)field.get(null)
         } catch (NoSuchFieldException ne) {
             return colorNotFound(color)
@@ -37,18 +38,14 @@ public class ColorRequestHandler extends RequestHandler {
             String brighter = colorUtils.findBrighterNameForColor(parsedColor).toLowerCase()
             if (brighter != color) {
                 return ResponseBuilder.tellResponse("The brighter color for ${color} is ${brighter} ")
-            } else {
-                def sorryAnswer = "Sorry I can't find a brighter color for ${color}."
-                return ResponseBuilder.tellResponse(sorryAnswer)
             }
-
-        } else {
-            return colorNotFound(color)
+            def sorryAnswer = "Sorry I can't find a brighter color for ${color}."
+            return ResponseBuilder.tellResponse(sorryAnswer)
         }
-
+        colorNotFound(color)
     }
 
     private RootResponse colorNotFound(String color) {
-        return ResponseBuilder.tellResponse("Sorry I don't understand the color ${color}.")
+        ResponseBuilder.tellResponse("Sorry I don't understand the color ${color}.")
     }
 }

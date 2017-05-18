@@ -6,10 +6,10 @@ import com.frogermcs.gactions.api.request.RootRequest
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.stream.JsonReader
-
-
 import javax.servlet.http.HttpServletRequest
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class AssistantActionController {
 
     def index() {
@@ -18,8 +18,8 @@ class AssistantActionController {
                         .addRequestHandlerFactory(StandardIntents.MAIN, new MainRequestHandlerFactory())
                         .addRequestHandlerFactory(StandardIntents.TEXT, new TextRequestHandlerFactory())
                         .addRequestHandlerFactory(StandardIntents.PERMISSION, new MyPermissionRequestHandlerFactory())
-                        .addRequestHandlerFactory("color.intent", new ColorRequestHandlerFactory())
-                        .addRequestHandlerFactory("color.darker.intent", new DarkerColorRequestHandlerFactory())
+                        .addRequestHandlerFactory('color.intent', new ColorRequestHandlerFactory())
+                        .addRequestHandlerFactory('color.darker.intent', new DarkerColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
         // log to file for debugging
@@ -34,14 +34,14 @@ class AssistantActionController {
     }
 
     private RootRequest parseActionRequest(HttpServletRequest request) throws IOException {
-        JsonReader jsonReader = new JsonReader(request.getReader())
-        return new Gson().fromJson(jsonReader, RootRequest.class)
+        JsonReader jsonReader = new JsonReader(request.reader)
+        new Gson().fromJson(jsonReader, RootRequest)
     }
 
     def color() {
         AssistantActions assistantActions =
                 new AssistantActions.Builder(new GrailsResponseHandler(response))
-                        .addRequestHandlerFactory("color.intent", new ColorRequestHandlerFactory())
+                        .addRequestHandlerFactory('color.intent', new ColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
         // log to file for debugging
@@ -57,7 +57,7 @@ class AssistantActionController {
     def darkerColor() {
         AssistantActions assistantActions =
                 new AssistantActions.Builder(new GrailsResponseHandler(response))
-                        .addRequestHandlerFactory("color.darker.intent", new DarkerColorRequestHandlerFactory())
+                        .addRequestHandlerFactory('color.darker.intent', new DarkerColorRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
         // log to file for debugging

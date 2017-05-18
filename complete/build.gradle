@@ -29,6 +29,7 @@ apply plugin:"asset-pipeline"
 apply plugin:"codenarc"
 apply plugin: 'com.google.cloud.tools.appengine' // <1>
 // end::gradleApplyPlugins[]
+apply from: "${project.projectDir}/gradle/codenarc.gradle"
 
 repositories {
     mavenLocal()

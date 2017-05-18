@@ -1,14 +1,13 @@
-package org.grails.gactions;
+package org.grails.gactions
 
 import com.frogermcs.gactions.api.RequestHandler
-import com.frogermcs.gactions.api.request.RootRequest;
+import com.frogermcs.gactions.api.request.RootRequest
+import groovy.transform.CompileStatic
 
-/**
- * Created by froger_mcs on 19/01/2017.
- */
-public class TextRequestHandlerFactory extends RequestHandler.Factory {
+@CompileStatic
+class TextRequestHandlerFactory extends RequestHandler.Factory {
     @Override
-    public RequestHandler create(RootRequest rootRequest) {
-        return new TextRequestHandler(rootRequest)
+    RequestHandler create(RootRequest rootRequest) {
+        new TextRequestHandler(rootRequest)
     }
 }
