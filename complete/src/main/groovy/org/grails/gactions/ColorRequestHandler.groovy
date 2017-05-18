@@ -36,11 +36,11 @@ class ColorRequestHandler extends RequestHandler {
         if (parsedColor) {
             ColorUtils colorUtils = new ColorUtils()
             String brighter = colorUtils.findBrighterNameForColor(parsedColor).toLowerCase()
+            String answer = "Sorry I can't find a brighter color for ${color}."
             if (brighter != color) {
-                return ResponseBuilder.tellResponse("The brighter color for ${color} is ${brighter} ")
+                answer = "The brighter color for ${color} is ${brighter} "
             }
-            def sorryAnswer = "Sorry I can't find a brighter color for ${color}."
-            return ResponseBuilder.tellResponse(sorryAnswer)
+            return ResponseBuilder.tellResponse(answer)
         }
         colorNotFound(color)
     }
