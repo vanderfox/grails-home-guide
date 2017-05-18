@@ -4,17 +4,16 @@ import com.frogermcs.gactions.ResponseBuilder
 import com.frogermcs.gactions.api.RequestHandler
 import com.frogermcs.gactions.api.request.RootRequest
 import com.frogermcs.gactions.api.response.RootResponse
+import groovy.transform.CompileStatic
 
-/**
- * Created by froger_mcs on 19/01/2017.
- */
-public class MainRequestHandler extends RequestHandler {
+@CompileStatic
+class MainRequestHandler extends RequestHandler {
     protected MainRequestHandler(RootRequest rootRequest) {
         super(rootRequest)
     }
 
     @Override
-    public RootResponse getResponse() {
-        return ResponseBuilder.askResponse("Hey, it works! Now tell something so I could repeat it.")
+    RootResponse getResponse() {
+        ResponseBuilder.askResponse('Hey, it works! Now tell something so I could repeat it.')
     }
 }

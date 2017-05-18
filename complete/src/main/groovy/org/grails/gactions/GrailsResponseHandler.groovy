@@ -3,59 +3,57 @@ package org.grails.gactions
 import com.frogermcs.gactions.ResponseHandler
 import com.frogermcs.gactions.api.response.RootResponse
 import com.google.gson.Gson
-import groovy.util.logging.Slf4j
+import groovy.transform.CompileStatic
 
 import javax.servlet.http.HttpServletResponse
+import groovy.util.logging.Slf4j
 
 /**
  * This is a handler for the SDK to make it work with Grails properly
  */
+@CompileStatic
 @Slf4j
-class GrailsResponseHandler implements ResponseHandler{
+class GrailsResponseHandler implements ResponseHandler {
     private final HttpServletResponse httpServletResponse
     private final Gson gson
 
-    public GrailsResponseHandler(HttpServletResponse httpServletResponse) {
+    GrailsResponseHandler(HttpServletResponse httpServletResponse) {
         this(httpServletResponse, new Gson())
     }
 
-    public GrailsResponseHandler(HttpServletResponse httpServletResponse, Gson gson) {
+    GrailsResponseHandler(HttpServletResponse httpServletResponse, Gson gson) {
         this.httpServletResponse = httpServletResponse
         this.gson = gson
     }
 
     @Override
-    public void onPrepareContentType(String contentType) {
+    void onPrepareContentType(String contentType) {
         httpServletResponse.setContentType(contentType)
     }
 
     @Override
-    public void onPrepareResponseHeaders(Map<String, String> headers) {
+    void onPrepareResponseHeaders(Map<String, String> headers) {
         for (String headerName : headers.keySet()) {
             httpServletResponse.addHeader(headerName, headers.get(headerName))
         }
     }
 
     @Override
-    public void onResponse(RootResponse rootResponse) {
+    void onResponse(RootResponse rootResponse) {
         try {
-            gson.toJson(rootResponse, httpServletResponse.getWriter())
+            gson.toJson(rootResponse, httpServletResponse.writer)
             httpServletResponse.flushBuffer()
         } catch (IOException e) {
-            log.error("Error writing response",e)
-            e.printStackTrace()
+            log.error('Error writing response', e)
         }
     }
 
-    public String getResponse(RootResponse rootResponse) {
+    String getResponse(RootResponse rootResponse) {
 
         try {
             gson.toJson(rootResponse)
         } catch (IOException e) {
-            log.error("Error getting response",e)
-            e.printStackTrace()
+            log.error('Error getting response', e)
         }
     }
-
-
 }

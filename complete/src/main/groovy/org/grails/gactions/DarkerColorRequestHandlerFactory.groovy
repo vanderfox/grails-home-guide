@@ -1,12 +1,13 @@
-package org.grails.gactions;
+package org.grails.gactions
 
 import com.frogermcs.gactions.api.RequestHandler
-import com.frogermcs.gactions.api.request.RootRequest;
+import com.frogermcs.gactions.api.request.RootRequest
+import groovy.transform.CompileStatic
 
-
-public class DarkerColorRequestHandlerFactory extends RequestHandler.Factory {
+@CompileStatic
+class DarkerColorRequestHandlerFactory extends RequestHandler.Factory {
     @Override
-    public RequestHandler create(RootRequest rootRequest) {
-        return new DarkerColorRequestHandler(rootRequest)
+    RequestHandler create(RootRequest rootRequest) {
+        new DarkerColorRequestHandler(rootRequest)
     }
 }
