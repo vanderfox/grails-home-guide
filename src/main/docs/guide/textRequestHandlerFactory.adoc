@@ -1,6 +1,0 @@
-This is part of the Google Actions SDK plumbing that handles invocation of TextRequestResponseHandler.
-[source,groovy]
-./src/main/groovy/org/grails/gactions/TextRequestHandlerFactory.groovy
-----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/TextRequestHandlerFactory.groovy[indent=0]
-----

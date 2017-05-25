@@ -1,6 +1,0 @@
-This is where the logic goes for the main intent. It is called when the action is first called such as 'talk to color finder". This starts a conversation that will prompt the user to say something.
-[source,groovy]
-./src/main/groovy/org/grails/gactions/MainRequestHandler.groovy
-----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/MainRequestHandler.groovy[indent=0]
-----

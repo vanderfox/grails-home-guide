@@ -1,3 +1,4 @@
+We will use `gactions CLI` to test our app. 
 
 Go to https://developers.google.com/actions/tools/gactions-cli[gactions CLI] and download it:
 
@@ -12,5 +13,3 @@ After you have installed gactions, run the init command in your terminal:
 ----
 $ gactions init --force
 ----
-
-Since we have already included an action.json file, we just want to set up your account information and we will come back to this later.
