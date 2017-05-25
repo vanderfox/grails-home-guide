@@ -1,5 +1,5 @@
 // tag::packageImport[]
-package org.grails.gactions
+package demo
 
 // end::packageImport[]
 
@@ -8,11 +8,10 @@ import com.frogermcs.gactions.AssistantActions
 import com.frogermcs.gactions.api.StandardIntents
 import com.frogermcs.gactions.api.request.RootRequest
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.stream.JsonReader
-import grails.util.Environment
 import javax.servlet.http.HttpServletRequest
 import groovy.transform.CompileStatic
+
 // end::importStatements[]
 
 // tag::classDeclaration[]
@@ -25,7 +24,7 @@ class AssistantActionController {
         AssistantActions assistantActions =
                 new AssistantActions.Builder(new GrailsResponseHandler(response))
                         .addRequestHandlerFactory(StandardIntents.MAIN, new MainRequestHandlerFactory())  // <1>
-                        .addRequestHandlerFactory(StandardIntents.TEXT, new TextRequestHandlerFactory())                        
+                        .addRequestHandlerFactory(StandardIntents.TEXT, new TextRequestHandlerFactory())
                         .build()
         RootRequest rootRequest = parseActionRequest(request)
         assistantActions.handleRequest(rootRequest) // <2>
@@ -39,7 +38,7 @@ class AssistantActionController {
                 new AssistantActions.Builder(new GrailsResponseHandler(response))
                         .addRequestHandlerFactory('color.intent', new ColorRequestHandlerFactory()) // <1>
                         .build()
-        RootRequest rootRequest = parseActionRequest(request)  // <2>        
+        RootRequest rootRequest = parseActionRequest(request)  // <2>
         assistantActions.handleRequest(rootRequest)
         null  // <3>
     }
@@ -51,14 +50,4 @@ class AssistantActionController {
         new Gson().fromJson(jsonReader, RootRequest)
     }
     // end::parseActionRequest[]
-
-    // tag::logToFile[]
-    private void logToFile(RootRequest rootRequest, String filename) {
-        Writer writer = new FileWriter(filename)
-        Gson gson = new GsonBuilder().create()
-        gson.toJson(rootRequest, writer)
-        writer.flush()
-        writer.close()
-    }
-    // end:logToFile[]
 }

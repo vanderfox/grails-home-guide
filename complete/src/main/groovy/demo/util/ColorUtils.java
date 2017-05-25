@@ -1,4 +1,4 @@
-package demo.util
+package demo.util;
 
 import java.awt.*;
 import java.util.ArrayList;
