@@ -33,21 +33,6 @@
       "http_execution": {
         "url": "https://color-finder-167203.appspot.com/assistantAction/color"
       }
-    },
-    {
-      "description": "Deep link that finds colors",
-      "initial_trigger": {
-        "intent": "color.darker.intent",
-        "queryPatterns": [
-          {
-            "queryPattern": "find a darker color for $SchemaOrg_Text:word"
-          }
-
-        ]
-      },
-      "http_execution": {
-        "url": "https://color-finder-167203.appspot.com/assistantAction/darkerColor"
-      }
-    }
+    },   
   ]
 }
