@@ -1,4 +1,4 @@
-package org.grails.gactions
+package demo
 
 import com.frogermcs.gactions.ResponseBuilder
 import com.frogermcs.gactions.api.RequestHandler
