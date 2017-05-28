@@ -10,11 +10,12 @@ $ gactions preview -action_package=src/main/resources/action.json -invocation_na
 ----
 
 You should see a similar message:
----
+
+____
 Pushing action 'color finder' for testing...
 'color finder' is now available for you until 2017-05-10 1:55AM CDT (29 minutes from now)
 Try 'gactions simulate', then 'talk to color finder', or use the Web Simulator at https://g.co/actionswebsim.
----
+____
 
 You can use the --preview_mins 9999999 parameter to extend the preview time.
 
@@ -22,55 +23,46 @@ Click start now you should see this:
 
 image::websimulator2.png[]
 
----
-
 Try to test out your actions with the following phrases:
 
----
-"ask color finder to find a brighter color for magenta"
----
+____
+ask color finder to find a brighter color for magenta
+____
+
 You should see the response:
 
----
-"Sure, here is the test version of color finder
+
+____
+Sure, here is the test version of color finder
 The brighter color for magenta is fuchsia"
----
+____
 
 Let's try another:
 
----
-
+____
 talk to color finder
-
----
+____
 
 You'll see:
 
----
-
+____
 Sure, here is the test version of color finder
 Hey, it works! Now tell something so I could repeat it.
-
----
+____
 
 Now respond with something:
 
----
-
+____
 Say something about Grails
-
----
+____
 
 You should see it echo back what you entered:
 
----
-
+____
 You just told: say something about Grails
-
----
+____
 
 You may also try using your Google Home device associated to your account as well.
 
 
 Now you can make a more rich skill, and when you are ready go to the Google API dashbaord, fill in the directory listing and submit it for testing.
-

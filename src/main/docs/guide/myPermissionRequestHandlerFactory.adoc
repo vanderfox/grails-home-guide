@@ -1,6 +1,0 @@
-This is part of the Google Actions SDK plumbing that handles invocation of MyPermissionRequestHandler.
-[source,groovy]
-./src/main/groovy/org/grails/gactions/MyPermissionRequestHandlerFactory.groovy
-----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/MyPermissionRequestHandlerFactory.groovy[indent=0]
-----

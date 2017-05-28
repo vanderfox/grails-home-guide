@@ -1,6 +1,0 @@
-This is an example handler to show the permissions ability of the sdk.
-[source,groovy]
-./src/main/groovy/org/grails/gactions/MyPermissionRequestHandler.groovy
-----
-include::{sourceDir}/src/main/groovy/org/grails/gactions/MyPermissionRequestHandler.groovy[indent=0]
-----

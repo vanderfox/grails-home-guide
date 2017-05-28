@@ -1,10 +1,9 @@
-package org.grails.gactions
+package demo
 
 import com.frogermcs.gactions.ResponseHandler
 import com.frogermcs.gactions.api.response.RootResponse
 import com.google.gson.Gson
 import groovy.transform.CompileStatic
-
 import javax.servlet.http.HttpServletResponse
 import groovy.util.logging.Slf4j
 

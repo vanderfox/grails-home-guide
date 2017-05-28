@@ -1,10 +1,10 @@
-package org.grails.gactions
+package demo
 
 import com.frogermcs.gactions.ResponseBuilder
 import com.frogermcs.gactions.api.RequestHandler
 import com.frogermcs.gactions.api.request.RootRequest
 import com.frogermcs.gactions.api.response.RootResponse
-import org.grails.gactions.util.ColorUtils
+import demo.util.ColorUtils
 import java.awt.Color
 import java.lang.reflect.Field
 import groovy.transform.CompileStatic
