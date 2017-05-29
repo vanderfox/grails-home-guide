@@ -28,7 +28,27 @@ image::enable-google-actions-api.png[]
 
 Now you should see this screen:
 
-image::color-finder-directory.png[]
+image::newconsole.png[]
+
+Let's go to the new console:
+
+image::actions-on-google-new-console.png[]
+
+Here we can fill in the directory, app information, surface capabilities (Phone or Google Home).
+The first time you go to this screen for a project, it will force you to upload the action package json via the 'gactions' tool like so:
+
+[source,bash]
+----
+gactions update --action_package src/main/resources/action.json --project color-finder-167203
+----
+
+If you have a action package written before May 17, 2017 you will have to re-write it into the new format for it to work.
+This will validate your Action package JSON and let you continue on in the new console. Once successful you will be able to enter directory information such as images, privacy policy, and descriptions. Here you can also pick the voice of the speaker in your skill.
+
+
+
+
+
 
 You don't need to do anything else here. When you are ready to publish your action to the world, you can fill in the directory listing and save it to submit for testing.
 

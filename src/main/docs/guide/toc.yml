@@ -10,6 +10,10 @@ writingTheApp:
   grailsResponseHandler: Handle Request from Google in Grails
   colorRequestHandlerFactory: Color Handler
   action: action.json is the metadata to tell Google how to handle processing the action calls
+  gactionsCLI:
+    title: We need to install the platform specific gactions CLI
+  googleActionsJavaSdk:
+    title: Unofficial Google Actions Java SDK
 appEngine:
   title: Google App Engine
   gapGradlePlugin: Google App Engine Gradle Plugin
@@ -18,6 +22,12 @@ appEngine:
   deployingTheApp: Deploying the App  
 test:
   title: Test
-  gactionsCLI: Install gactions CLI
   webSimulator: Test and interact with your Google Action
+  debugging: log incoming and outgoing data to troubleshoot
+apiai:
+  title: API.AI Integration with the Grails API.AI Plugin
+  apiai-console: Setup API.AI Console
+  apiaiWebhookController: Webhooks - Call a webhook Grails controller and return a weather forecast
+  data-services: Data Services - Grails action calls an API-AI action via query and returns the API-AI response
+
   

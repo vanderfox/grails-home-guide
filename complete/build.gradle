@@ -32,6 +32,11 @@ repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
     jcenter()
+    // tag::webhookDependencyMaven[]
+    maven {
+        url  "http://dl.bintray.com/vanderfox/grails-api-ai"
+    }
+    // end::webhookDependencyMaven[]
 }
 
 // tag::configurations[]
@@ -63,6 +68,10 @@ dependencies {
     // tag::gactionsDependency[]
     compile 'com.frogermcs.gactions:gactions:0.1.1'
     // end::gactionsDependency[]
+
+    // tag::webhookDependency[]
+    compile 'org.grails.plugins:grails-api-ai:0.1.2'
+    // end::webhookDependency[]
 }
 
 

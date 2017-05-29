@@ -13,3 +13,8 @@ After you have installed gactions, run the init command in your terminal:
 ----
 $ gactions init --force
 ----
+
+
+Other commands you can run: preview, update, deploy, test, and list.
+
+Since we have already included an action.json file, we just want to set up your account information and we will come back to this later.

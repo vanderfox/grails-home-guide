@@ -4,12 +4,9 @@ We will need to modify projectId with the one you created in the console, and th
 
 Here you can also control:
 
-    * the type of voice used (male_1,
-                          male_2,
-                          female_1,
-                          female_2),
     * sample queries to help google understand which action to call
     * intent to call
+    * reference for new schema at https://developers.google.com/actions/reference/rest/Shared.Types/ActionPackage
 
 
 [source,json]

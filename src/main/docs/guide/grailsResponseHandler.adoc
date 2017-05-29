@@ -1,4 +1,4 @@
-We name our app _color finder_. We want to achieve the next scenario:
+We name our app _color finder_. We want to achieve the scenario pictured below:
 
 image::scenarioA.jpeg[]
 

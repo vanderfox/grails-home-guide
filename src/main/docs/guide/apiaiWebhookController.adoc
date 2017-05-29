@@ -1,0 +1,51 @@
+
+Let's make sure we've added the 'vanderfox' maven repo and Grails api-ai plugin to our build.gradle. This will change once it's officially published with the rest of the Grails plugins.
+
+[source,groovy]
+./build.gradle
+----
+include::{sourceDir}/build.gradle[indent=0, tag=webhookDependencyMaven]
+----
+
+
+[source,groovy]
+./build.gradle
+----
+include::{sourceDir}/build.gradle[indent=0, tag=webhookDependency]
+----
+
+Next let's make a controller
+
+[source,groovy]
+./grails-app/controllers/demo/WeatherWebhookController.groovy
+----
+include::{sourceDir}/grails-app/controllers/demo/WeatherWebhookController.groovy[indent=0]
+----
+
+This controller implements the trait AiWebhookController which comes from the api-ai plugin. If you have
+any auto generated def index() {} delete it. The trait will implement the right one.
+
+Here we parse the input parameter from input.result.parameter and the name given in the previous step called 'geo-city'.
+
+We then use it to call the Yahoo Weather API service, return the data in a simple string to the user. To return data to the API AI service, just full out the fields in the Fulfillment object.
+Here we're just returning simple speech and display text.
+
+Now that your controller is made, make sure to go back to the API AI console for the intent you made in the previous step, and make sure the fulfillment URL is this controller.
+
+Let's hop back there now and try our webhook!
+
+image::apiai-webhook-weathertest.png[]
+
+[source,json]
+----
+"status": {
+    "code": 200,
+    "errorType": "success"
+}
+----
+
+ If you get an error, click 'Show JSON' and look for the block with a status: it will likely be code 206, Partial or no content. It's not super helpful. You'll have to write code in your webhook  to capture the input JSON and output JSON. If turn on debugging level for 'org.grails.apiai' it will dump both of those to your application logs.
+To debug further, use the curl command and pipe that file into your local Grails application running in the debugger. Don't fall in the trap of pushing and testing over and over again, it will take too long to troubleshoot.
+
+
+

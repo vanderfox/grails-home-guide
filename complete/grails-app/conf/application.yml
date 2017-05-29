@@ -88,3 +88,4 @@ endpoints:
     jmx:
         unique-names: true
 
+apiAiKey: <api client access key from API.AI console>

@@ -1,0 +1,40 @@
+First you will need to set up your API.AI console. If you go to https://api.ai you can create a new account, which will be linked to your Google account.
+
+image::api-ai-console.png[]
+
+Next we will create a new Agent to do our work in.
+
+image::apiai-newagent.png[]
+
+Fill in the details as shown, the name isn't important yet.
+
+
+Click on the gear icon to the right of your agent name in the drop-down on the left like below.
+
+image::apiai-agent-keys.png[]
+
+Here you see the agent keys. You will need to add the Grails application parameter 'apiAiKey=' with the value for the client access token in the 'data services' part of the guide.
+
+
+Now let's create some Intents. These will be what the user says, and we will create parameters for them and have our webhook fulfull them.
+
+image::api-ai-intents.png[]
+
+Click 'create intent' icon. Where is says 'User says' enter 'Weather in London' and press enter.
+You now will see something under 'Events'. Enter an action name, it isn't important here. What is important is the table shown in the picture. It's converted 'London' into a
+parameter called 'geo-city' with the entity '@sys.geo-city' and value $geo-city. If you add more nouns to the query it will try to do the same. Or you can highlight one with your mouse and it will try to make a parameter as well.
+
+The last item on this screen that is important is to click on the word at the bottom labeled 'Fulfillment'. Check the 'Use webhook' box.
+
+Now let's set up the webhook in the console.
+
+image::apiai-fulfillment.png[]
+
+Change the URL to the server you've deployed. Note the controller name at the end, you will need to come back and adjust after we create it in the next section.
+
+
+
+
+
+
+

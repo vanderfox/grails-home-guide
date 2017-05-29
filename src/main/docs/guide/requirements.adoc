@@ -3,4 +3,5 @@
 * Some time on your hands
 * A decent text editor or IDE
 * A Google account
+* A Google cloud account
 * curl command to help debugging

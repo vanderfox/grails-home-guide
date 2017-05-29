@@ -1,38 +1,69 @@
 {
-  "versionLabel": "1.0.0",
-  "agentInfo": {
-    "languageCode": "en-US",
-    "projectId": "color-finder-167203",
-    "voiceName": "male_1"
-  },
+
   "actions": [
     {
-      "initialTrigger": {
-        "intent": "assistant.intent.action.MAIN"
+      "description": "Default Welcome Intent",
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "color-finder-echo"
       },
-      "httpExecution": {
-        "url": "https://color-finder-167203.appspot.com/assistantAction/index"
+      "intent": {
+        "name": "actions.intent.MAIN"
       }
+
+    },
+    {
+      "description": "Deep link that finds brighter colors",
+      "name":"color.intent",
+      "fulfillment": {
+        "conversationName": "color.intent"
+      },
+      "intent": {
+        "name": "color.intent",
+        "parameters": [{
+          "name": "color",
+          "type": "SchemaOrg_Color"
+        }],
+        "trigger": {
+          "queryPatterns": [
+            "find a brighter color for $SchemaOrg_Color:color"
+          ]
+        }
+      }
+
     },
     {
       "description": "Deep link that finds colors",
-      "initial_trigger": {
-        "intent": "color.intent",
-        "queryPatterns": [
-          {
-            "queryPattern": "find a brighter color for $SchemaOrg_Text:word"
-          },
-          {
-            "queryPattern": "about $SchemaOrg_Text:word"
-          },
-          {
-            "queryPattern": "find colors"
-          }
-        ]
+      "name":"color.darker.intent",
+      "fulfillment": {
+        "conversationName": "darker.color.intent"
       },
-      "http_execution": {
-        "url": "https://color-finder-167203.appspot.com/assistantAction/color"
+      "intent": {
+        "name": "darker.color.intent",
+        "parameters": [{
+          "name": "color",
+          "type": "SchemaOrg_Color"
+        }],
+        "trigger": {
+          "queryPatterns": [
+            "find a darker color for $SchemaOrg_Color:color"
+          ]
+        }
       }
-    },   
-  ]
+    }
+  ],
+  "conversations": {
+    "color-finder-echo": {
+      "name": "color-finder-echo",
+      "url": "https://color-finder-167203.appspot.com/assistantAction/index"
+    },
+    "color.intent": {
+      "name": "color.intent",
+      "url": "https://color-finder-167203.appspot.com/assistantAction/color"
+    },
+    "darker.color.intent": {
+      "name": "darker.color.intent",
+      "url": "https://color-finder-167203.appspot.com/assistantAction/darkerColor"
+    }
+  }
 }
